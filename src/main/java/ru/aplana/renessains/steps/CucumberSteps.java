@@ -1,9 +1,11 @@
 package ru.aplana.renessains.steps;
 
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.ru.Дано;
+import ru.aplana.renessains.utils.InitDriver;
 
-public class CucumberSteps{
-
+public class CucumberSteps {
 
 
     private AllureSteps allure = new AllureSteps();

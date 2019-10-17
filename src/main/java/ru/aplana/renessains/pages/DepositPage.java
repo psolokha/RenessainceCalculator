@@ -2,7 +2,9 @@ package ru.aplana.renessains.pages;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
@@ -63,7 +65,8 @@ public class DepositPage extends IndexPage {
 
     public void setMonthPayment(int sum) {
         waitElementandClick(inputMonthPayment);
-        inputMonthPayment.clear();
+        inputMonthPayment.sendKeys(Keys.BACK_SPACE);
+        new Actions(driver).pause(500).build().perform();
         inputMonthPayment.sendKeys(String.valueOf(sum));
     }
 
