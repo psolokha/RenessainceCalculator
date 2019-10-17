@@ -2,15 +2,15 @@ package ru.aplana.renessains.steps;
 
 import cucumber.api.java.ru.Дано;
 
-public class CucumberSteps {
+public class CucumberSteps{
 
 
 
-    AllureSteps allure = new AllureSteps();
+    private AllureSteps allure = new AllureSteps();
 
-    @Дано("Перейти по ссылке - https://rencredit.ru")
-    public void openSite(){
-        allure.openIndexPage();
+    @Дано("Перейти по ссылке - (.*)")
+    public void openSite(String url){
+        allure.openIndexPage(url);
     }
 
     @Дано("Перейти в меню – (.*)")
@@ -23,9 +23,34 @@ public class CucumberSteps {
         allure.chooseCurrency(currency);
     }
 
-//    @Дано("Сумма вклада – (.*)")
-//    public void depositAmount(String sum) {
-//        allure.dipositAmount(sum);
-//    }
+    @Дано("Сумма вклада – (.*)")
+    public void depositAmount(String sum) {
+        allure.depositAmount(sum);
+    }
+
+    @Дано("Срок – (.*) месяцев")
+    public void setTime(String months) {
+        allure.setTime(months);
+    }
+
+    @Дано("Ежемесячное пополнение – (.*)")
+    public void monthPayment(String sum) {
+        allure.monthPayment(sum);
+    }
+
+    @Дано("Отметить – Ежемесячная капитализация")
+    public void tickCapital() {
+        allure.capitalize();
+    }
+
+    @Дано("Отметить – частичное снятие")
+    public void tickPartWithdrawal(){
+        allure.tickPartWithdrowal();
+    }
+
+    @Дано("Проверить расчеты по вкладу:")
+    public void confirmResults(String results) {
+        allure.confirmResults(results);
+    }
 
 }
